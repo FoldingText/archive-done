@@ -2,8 +2,8 @@
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Toggle archive-done'
-      'command': 'archive-done:toggle'
+      'label': 'Archive Done'
+      'command': 'archive-done:archive'
     }
   ]
 'menu': [

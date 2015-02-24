@@ -4,11 +4,8 @@ module.exports = ArchiveDone =
   subscriptions: null
 
   activate: (state) ->
-    # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
-
-    # Register command that toggles this view
-    @subscriptions.add atom.commands.add 'atom-workspace', 'archive-done:toggle': => @toggle()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'archive-done:archive': => @archive()
 
   consumeOutlineEditorService: (outlineEditorService) ->
     @outlineEditorService = outlineEditorService
@@ -18,7 +15,7 @@ module.exports = ArchiveDone =
   deactivate: ->
     @subscriptions.dispose()
 
-  toggle: ->
+  archive: ->
     outline = @outlineEditorService?.getActiveOutlineEditor()?.outline
     if outline
       archive = outline.itemsForXPath("//p/b[text()='Archive']")[0]

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "A short description of your package",
   "activationEvents": [
-    "archive-done:toggle"
+    "archive-done:archive"
   ],
   "consumedServices": {
     "birch-outine-editor-service": {
