@@ -1,5 +1,5 @@
 # archive-done package
 
-A short description of your package.
-
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+Extends the Birch with a new "Archive Done" command. The command is availible
+in the Atom command pallet (Command-Shift-P) and in birch-outline-editor
+context menus.
