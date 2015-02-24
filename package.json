@@ -1,0 +1,23 @@
+{
+  "name": "archive-done",
+  "main": "./lib/archive-done",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationEvents": [
+    "archive-done:toggle"
+  ],
+  "consumedServices": {
+    "birch-outine-editor-service": {
+      "versions": {
+        "^0.0.1": "consumeOutlineEditorService"
+      }
+    }
+  },
+  "repository": "https://github.com/atom/archive-done",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
