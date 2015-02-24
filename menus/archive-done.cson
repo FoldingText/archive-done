@@ -1,22 +1,8 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
-  'atom-text-editor': [
+  'birch-outline-editor': [
     {
       'label': 'Archive Done'
       'command': 'archive-done:archive'
     }
   ]
-'menu': [
-  {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'archive-done'
-      'submenu': [
-        {
-          'label': 'Toggle'
-          'command': 'archive-done:toggle'
-        }
-      ]
-    ]
-  }
-]
