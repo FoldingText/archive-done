@@ -3,9 +3,9 @@
   "main": "./lib/archive-done",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationCommands": [
-    "archive-done:archive"
-  ],
+  "activationCommands": {
+    "birch-outline-editor": "archive-done:archive"
+  },
   "consumedServices": {
     "birch-outine-editor-service": {
       "versions": {
