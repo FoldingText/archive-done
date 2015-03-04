@@ -9,7 +9,7 @@
   "consumedServices": {
     "birch-outine-editor-service": {
       "versions": {
-        "^0.0.1": "consumeOutlineEditorService"
+        "^0.1.0": "consumeBirchOutlineEditorService"
       }
     }
   },
