@@ -5,29 +5,34 @@ module.exports = ArchiveDone =
 
   activate: (state) ->
     @subscriptions = new CompositeDisposable
-    @subscriptions.add atom.commands.add 'atom-workspace', 'archive-done:archive': => @archive()
+    @subscriptions.add atom.commands.add 'birch-outline-editor',
+      'archive-done:archive': => @archive()
 
-  consumeOutlineEditorService: (outlineEditorService) ->
-    @outlineEditorService = outlineEditorService
+  consumeBirchOutlineEditorService: (birchOutlineEditorService) ->
+    @birchOutlineEditorService = birchOutlineEditorService
     new Disposable =>
-      @outlineEditorService = null
+      @birchOutlineEditorService = null
 
   deactivate: ->
     @subscriptions.dispose()
 
   archive: ->
-    outline = @outlineEditorService?.getActiveOutlineEditor()?.outline
+    outline = @birchOutlineEditorService?.getActiveOutlineEditor()?.outline
     if outline
+      outline.beginUpdates()
+
       archive = outline.itemsForXPath("//p/b[text()='Archive']")[0]
       unless archive
         archive = outline.createItem 'Archive'
-        archive.addElementInBodyTextRange 'b', {}, 0, 7
+        archive.addElementInBodyTextRange 'B', {}, 0, 7
         outline.root.appendChild archive
 
       items = outline.itemsForXPath "//li[@data-done]"
-      items = @outlineEditorService.Item.commonAncestors(items)
+      items = @birchOutlineEditorService.Item.commonAncestors(items)
       items = items.filter (each) ->
         each != archive and not archive.contains each
 
       if items.length
         archive.insertChildrenBefore items, archive.firstChild
+
+      outline.endUpdates()
