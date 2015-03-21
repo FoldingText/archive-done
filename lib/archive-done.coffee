@@ -21,14 +21,14 @@ module.exports = ArchiveDone =
     if outline
       outline.beginUpdates()
 
-      archive = outline.itemsForXPath("//p/b[text()='Archive']")[0]
+      archive = outline.getItemsForXPath("//p/b[text()='Archive']")[0]
       unless archive
         archive = outline.createItem 'Archive'
         archive.addElementInBodyTextRange 'B', {}, 0, 7
         outline.root.appendChild archive
 
-      items = outline.itemsForXPath "//li[@data-done]"
-      items = @birchOutlineEditorService.Item.commonAncestors(items)
+      items = outline.getItemsForXPath "//li[@data-status='complete']"
+      items = @birchOutlineEditorService.Item.getCommonAncestors items
       items = items.filter (each) ->
         each != archive and not archive.contains each
 
